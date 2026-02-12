@@ -1,0 +1,22 @@
+{
+    "vocabulary": [
+        {
+            "id": "1",
+            "japanese": "いま",
+            "kanji": "今",
+            "meaning": "now"
+        },
+        {
+            "id": "2",
+            "japanese": "がくせい",
+            "kanji": "学生",
+            "meaning": "student"
+        },
+        {
+            "id": "3",
+            "japanese": "こうこう",
+            "kanji": "高校",
+            "meaning": "high school"
+        }
+    ]
+}

@@ -9,11 +9,14 @@ import type { VocabWordType } from "@/lib/types";
 export default function GameBoard() {
     const [displayedWordID, setDisplayedWordID] = useState<number>(0)
     const [userGuess, setUserGuess] = useState<string>("")
+    const [falseText, setFalseText] = useState<string>("")
 
     const vocab: VocabWordType[] = vocabularyRaw.vocabulary;
 
     const handleGuess = (e: React.SubmitEvent) => {
         e.preventDefault();
+
+        setFalseText("")
 
         if (userGuess == vocab[displayedWordID].meaning) {
             setUserGuess("");
@@ -24,11 +27,17 @@ export default function GameBoard() {
                 setDisplayedWordID(displayedWordID + 1);
             }
         }
+        else {
+            setFalseText("Try again!")
+        }
     }
 
     return (
         <div className="flex flex-col content-center items-center bg-yellow-100 h-150 w-5xl ">
-            <VocabWord word={vocab[displayedWordID]} />
+            <div className="flex flex-col gap-10 items-center">
+                <VocabWord word={vocab[displayedWordID]} />
+                <p className="text-red-500">{falseText}</p>
+            </div>
 
             <form onSubmit={handleGuess}>
                 <input className="bg-white border w-125"

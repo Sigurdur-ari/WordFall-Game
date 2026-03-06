@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion"
 
 import VocabWord from "@/components/VocabWord";
-import vocabularyRaw from "@/data/genki1_1.json";
+import { genki1Vocab } from "@/data/genki1";
 import type { VocabWordType } from "@/lib/types";
 
 export default function GameBoard() {
@@ -14,10 +14,10 @@ export default function GameBoard() {
     const [missTotal, setMissTotal] = useState<number>(0)
     const [correctTotal, setCorrectTotal] = useState<number>(0)
 
-    const vocab: VocabWordType[] = vocabularyRaw.vocabulary;
+    const vocab: VocabWordType[] = genki1Vocab;
 
     //function to reset game
-    function reset() {
+    const reset = () => {
         setDisplayedWordID(0);
         setUserGuess("");
         setFalseText("");
@@ -25,21 +25,29 @@ export default function GameBoard() {
         setCorrectTotal(0);
     }
 
-    function nextWord() {
+    //Sets next word
+    const nextWord = () => {
         setDisplayedWordID(displayedWordID + 1);
     }
 
-    function handleMiss() {
+    //Handles misses
+    const handleMiss = () => {
         setMissTotal(missTotal + 1);
-        nextWord();
+        if (displayedWordID >= vocab.length - 1) {
+            setDisplayedWordID(0);
+        }
+        else {
+            nextWord();
+        }
     }
 
+    //handles guesses and displays incorrect text and loops around when words finish
     const handleGuess = (e: React.SubmitEvent) => {
         e.preventDefault();
 
         setFalseText("");
 
-        if (userGuess == vocab[displayedWordID].meaning) {
+        if (userGuess == vocab[displayedWordID].meaning[0]) {
             setUserGuess("");
             setCorrectTotal(correctTotal + 1)
             if (displayedWordID >= vocab.length - 1) {
@@ -62,7 +70,7 @@ export default function GameBoard() {
                 key={displayedWordID}
                 initial={{ y: 0 }}
                 animate={{ y: 450 }}
-                transition={{ duration: 10, ease: "linear" }}
+                transition={{ duration: 5, ease: "linear" }}
                 onAnimationComplete={handleMiss}
             >
                 <VocabWord word={vocab[displayedWordID]} />

@@ -20,9 +20,9 @@ export const chapter3: VocabWordType[] = [
     {
         id: "3",
         chapter: 3,
-        japanese: "test kana 2",
-        kanji: "test kanji 2",
-        meaning: ["test kana 2"],
+        japanese: "test kana 3",
+        kanji: "test kanji 3",
+        meaning: ["test kana 3"],
         wordType: "noun"
     },
 ]

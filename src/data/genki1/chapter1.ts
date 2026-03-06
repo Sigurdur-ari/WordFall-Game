@@ -3,6 +3,7 @@ import { VocabWordType } from "@/lib/types";
 export const chapter1: VocabWordType[] = [
     {
         id: "1",
+        chapter: 1,
         japanese: "だいがく",
         kanji: "大学",
         meaning: ["university", "college"],
@@ -10,6 +11,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "2",
+        chapter: 1,
         japanese: "こうこう",
         kanji: "高校",
         meaning: ["high school"],
@@ -17,6 +19,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "3",
+        chapter: 1,
         japanese: "がくせい",
         kanji: "学生",
         meaning: ["student"],
@@ -24,6 +27,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "4",
+        chapter: 1,
         japanese: "だいがくせい",
         kanji: "大学生",
         meaning: ["university student", "college student"],
@@ -31,6 +35,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "5",
+        chapter: 1,
         japanese: "りゅうがくせい",
         kanji: "留学生",
         meaning: ["international student", "transfer student"],
@@ -38,6 +43,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "6",
+        chapter: 1,
         japanese: "せんせい",
         kanji: "先生",
         meaning: ["teacher"],
@@ -45,6 +51,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "7",
+        chapter: 1,
         japanese: "〜ねんせい",
         kanji: "〜年生",
         meaning: ["...year student", "year student", "school year", "year"],
@@ -52,6 +59,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "8",
+        chapter: 1,
         japanese: "いちねんせい",
         kanji: "一年生",
         meaning: ["first-year student", "first year student", "firstyear student"],
@@ -59,6 +67,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "9",
+        chapter: 1,
         japanese: "せんこう",
         kanji: "専攻",
         meaning: ["major"],
@@ -66,6 +75,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "10",
+        chapter: 1,
         japanese: "わたし",
         kanji: "私",
         meaning: ["I"],
@@ -73,6 +83,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "11",
+        chapter: 1,
         japanese: "ともだち",
         kanji: "友達",
         meaning: ["friend"],
@@ -80,6 +91,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "12",
+        chapter: 1,
         japanese: "〜さん",
         kanji: "x",
         meaning: ["Mr.", "Ms.", "Mr", "Ms"],
@@ -87,6 +99,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "13",
+        chapter: 1,
         japanese: "〜じん",
         kanji: "〜人",
         meaning: ["...people", "people"],
@@ -94,6 +107,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "14",
+        chapter: 1,
         japanese: "にほんじん",
         kanji: "日本人",
         meaning: ["japanese people"],
@@ -101,6 +115,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "15",
+        chapter: 1,
         japanese: "いま",
         kanji: "今",
         meaning: ["now"],
@@ -108,6 +123,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "16",
+        chapter: 1,
         japanese: "ごぜん",
         kanji: "午前",
         meaning: ["am", "a.m."],
@@ -115,6 +131,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "17",
+        chapter: 1,
         japanese: "ごご",
         kanji: "午後",
         meaning: ["pm", "p.m."],
@@ -122,6 +139,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "18",
+        chapter: 1,
         japanese: "〜じ",
         kanji: "〜時",
         meaning: ["...o'clock", "oclock"],
@@ -129,6 +147,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "19",
+        chapter: 1,
         japanese: "いちじ",
         kanji: "一時",
         meaning: ["one o'clock", "one oclock"],
@@ -136,6 +155,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "20",
+        chapter: 1,
         japanese: "はん",
         kanji: "半",
         meaning: ["half"],
@@ -143,6 +163,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "21",
+        chapter: 1,
         japanese: "にじはん",
         kanji: "二時半",
         meaning: ["half past two"],
@@ -150,6 +171,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "22",
+        chapter: 1,
         japanese: "にほん",
         kanji: "日本",
         meaning: ["Japan"],
@@ -157,6 +179,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "23",
+        chapter: 1,
         japanese: "アメリカ",
         kanji: "x",
         meaning: ["USA"],
@@ -164,6 +187,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "24",
+        chapter: 1,
         japanese: "〜ご",
         kanji: "〜語",
         meaning: ["...language"],
@@ -171,6 +195,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "25",
+        chapter: 1,
         japanese: "にほんご",
         kanji: "日本語",
         meaning: ["Japanese language", "Japanese"],
@@ -178,6 +203,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "26",
+        chapter: 1,
         japanese: "〜さい",
         kanji: "〜歳",
         meaning: ["...years old", "years old", "age"],
@@ -185,6 +211,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "27",
+        chapter: 1,
         japanese: "でんわ",
         kanji: "電話",
         meaning: ["telephone", "phone"],
@@ -192,6 +219,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "28",
+        chapter: 1,
         japanese: "〜ばん",
         kanji: "〜番",
         meaning: ["number...", "number"],
@@ -199,6 +227,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "29",
+        chapter: 1,
         japanese: "ばんごう",
         kanji: "番号",
         meaning: ["number"],
@@ -206,6 +235,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "30",
+        chapter: 1,
         japanese: "なまえ",
         kanji: "名前",
         meaning: ["name"],
@@ -213,6 +243,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "31",
+        chapter: 1,
         japanese: "なん/なに",
         kanji: "何",
         meaning: ["what"],
@@ -220,6 +251,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "32",
+        chapter: 1,
         japanese: "あのう",
         kanji: "x",
         meaning: ["um", "um..."],
@@ -227,6 +259,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "33",
+        chapter: 1,
         japanese: "はい",
         kanji: "x",
         meaning: ["yes"],
@@ -234,6 +267,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "34",
+        chapter: 1,
         japanese: "そうです",
         kanji: "x",
         meaning: ["Thats right", "That's right"],
@@ -241,6 +275,7 @@ export const chapter1: VocabWordType[] = [
     },
     {
         id: "35",
+        chapter: 1,
         japanese: "そうですか",
         kanji: "x",
         meaning: ["Is that so", "i see", "is that so?"],

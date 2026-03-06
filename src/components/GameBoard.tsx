@@ -7,14 +7,19 @@ import VocabWord from "@/components/VocabWord";
 import { genki1Vocab } from "@/data/genki1";
 import type { VocabWordType } from "@/lib/types";
 
-export default function GameBoard() {
+type Props = {
+    selectedChapters: number[];
+    goBack: () => void;
+};
+
+export default function GameBoard({ selectedChapters, goBack }: Props) {
     const [displayedWordID, setDisplayedWordID] = useState<number>(0)
     const [userGuess, setUserGuess] = useState<string>("")
     const [falseText, setFalseText] = useState<string>("")
     const [missTotal, setMissTotal] = useState<number>(0)
     const [correctTotal, setCorrectTotal] = useState<number>(0)
 
-    const vocab: VocabWordType[] = genki1Vocab;
+    const vocab: VocabWordType[] = genki1Vocab.filter(word => selectedChapters.includes(word.chapter));
 
     //function to reset game
     const reset = () => {
@@ -90,6 +95,12 @@ export default function GameBoard() {
                 </form>
                 {missTotal > 0 && <p>Misses: {missTotal}</p>}
             </div>
+            <button
+                onClick={goBack}
+                className="bg-gray-400 px-4 py-2 rounded"
+            >
+                Back
+            </button>
         </div>
     )
 }

@@ -4,15 +4,17 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion"
 
 import VocabWord from "@/components/VocabWord";
+import { difficultySettings } from "@/components/DifficultySelect";
 import { genki1Vocab } from "@/data/genki1";
-import type { VocabWordType } from "@/lib/types";
+import type { Difficulty, VocabWordType } from "@/lib/types";
 
 type Props = {
     selectedChapters: number[];
+    selectedDifficulty: Difficulty
     goBack: () => void;
 };
 
-export default function GameBoard({ selectedChapters, goBack }: Props) {
+export default function GameBoard({ selectedChapters, selectedDifficulty, goBack }: Props) {
     const [displayedWordID, setDisplayedWordID] = useState<number>(0)
     const [userGuess, setUserGuess] = useState<string>("")
     const [falseText, setFalseText] = useState<string>("")
@@ -82,23 +84,6 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
             setFalseText("Try again!");
             setUserGuess("");
         }
-
-        //NEED UPDATED GUESS HANDLING BECAUSE OF LISTS
-        /**if (userGuess == vocab[displayedWordID].meaning[0]) {
-            setUserGuess("");
-            setCorrectTotal((prev) => prev + 1)
-            if (displayedWordID >= vocab.length - 1) {
-                setDisplayedWordID(0);
-            }
-            else {
-                nextWord();
-            }
-        }
-        else {
-            setFalseText("Try again!");
-            setUserGuess("");
-        }
-        **/
     }
 
     //Updates x start pos based on board width
@@ -120,6 +105,7 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
         inputRef.current?.focus()
     }, [displayedWordID])
 
+
     return (
         <>
             <div
@@ -131,7 +117,7 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
                     style={{ left: xPos }}
                     initial={{ y: 0 }}
                     animate={{ y: 430 }}
-                    transition={{ duration: 5, ease: "linear" }}
+                    transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}
                     onAnimationComplete={handleMiss}
                 >
                     <VocabWord word={vocab[displayedWordID]} />

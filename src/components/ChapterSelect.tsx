@@ -3,11 +3,11 @@
 type Props = {
     selected: number[];
     setSelected: (chapters: number[]) => void;
-    startGame: () => void;
+    nextStep: () => void;
     goBack: () => void;
 }
 
-export default function ChapterSelect({ selected, setSelected, startGame, goBack }: Props) {
+export default function ChapterSelect({ selected, setSelected, nextStep, goBack }: Props) {
 
     function toggleChapter(chapter: number) {
         if (selected.includes(chapter)) {
@@ -33,10 +33,10 @@ export default function ChapterSelect({ selected, setSelected, startGame, goBack
                 ))}
             </div>
             <button
-                onClick={startGame}
+                onClick={nextStep}
                 className="bg-green-500 text-white px-4 py-2 rounded"
             >
-                Start Game!
+                Select difficulty!
             </button>
             <button
                 onClick={goBack}

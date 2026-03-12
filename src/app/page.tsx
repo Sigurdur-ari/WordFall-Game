@@ -5,12 +5,15 @@ import StartScreen from "@/components/StartScreen"
 import ChapterSelect from "@/components/ChapterSelect";
 
 import { useState } from "react";
+import DifficultySelect from "@/components/DifficultySelect";
+import { Difficulty } from "@/lib/types";
 
-type DisplayScreen = "menu" | "chapterSelect" | "game"
+type DisplayScreen = "menu" | "chapterSelect" | "difficultySelect" | "game"
 
 export default function Home() {
   const [screen, setScreen] = useState<DisplayScreen>("menu");
   const [selectedChapters, setSelectedChapters] = useState<number[]>([]);
+  const [difficulty, setDifficulty] = useState<Difficulty>("medium");
 
   if (screen == "menu") {
     return (
@@ -28,8 +31,22 @@ export default function Home() {
         <ChapterSelect
           selected={selectedChapters}
           setSelected={setSelectedChapters}
-          startGame={() => setScreen("game")}
+          nextStep={() => setScreen("difficultySelect")}
           goBack={() => setScreen("menu")}
+        />
+      </div>
+    )
+  }
+
+  if (screen == "difficultySelect") {
+    return (
+      <div className="flex flex-col content-center items-center h-screen">
+        <Header />
+        <DifficultySelect
+          difficulty={difficulty}
+          setDifficulty={setDifficulty}
+          startGame={() => setScreen("game")}
+          goBack={() => setScreen("chapterSelect")}
         />
       </div>
     )
@@ -41,7 +58,8 @@ export default function Home() {
         <Header />
         <GameBoard
           selectedChapters={selectedChapters}
-          goBack={() => setScreen("chapterSelect")}
+          selectedDifficulty={difficulty}
+          goBack={() => setScreen("difficultySelect")}
         />
       </div>
     );

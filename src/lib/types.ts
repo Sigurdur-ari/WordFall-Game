@@ -6,3 +6,5 @@ export type VocabWordType = {
     meaning: string[];
     wordType: string;
 };
+
+export type Difficulty = "easy" | "medium" | "hard" | "extreme";

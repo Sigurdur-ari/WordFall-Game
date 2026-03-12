@@ -39,6 +39,7 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
 
     //Sets next word
     const nextWord = () => {
+        setFalseText("")
         setDisplayedWordID((prev) => prev + 1);
     }
 
@@ -59,7 +60,15 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
 
         setFalseText("");
 
-        if (userGuess == vocab[displayedWordID].meaning[0]) {
+        //change guess word to lowercase
+        const guess = userGuess.trim().toLowerCase();
+
+        //Check all available meanings of word in lowercase to guess
+        const isCorrect = vocab[displayedWordID].meaning.some(
+            (word) => guess === word.toLowerCase()
+        );
+
+        if (isCorrect) {
             setUserGuess("");
             setCorrectTotal((prev) => prev + 1)
             if (displayedWordID >= vocab.length - 1) {
@@ -73,6 +82,23 @@ export default function GameBoard({ selectedChapters, goBack }: Props) {
             setFalseText("Try again!");
             setUserGuess("");
         }
+
+        //NEED UPDATED GUESS HANDLING BECAUSE OF LISTS
+        /**if (userGuess == vocab[displayedWordID].meaning[0]) {
+            setUserGuess("");
+            setCorrectTotal((prev) => prev + 1)
+            if (displayedWordID >= vocab.length - 1) {
+                setDisplayedWordID(0);
+            }
+            else {
+                nextWord();
+            }
+        }
+        else {
+            setFalseText("Try again!");
+            setUserGuess("");
+        }
+        **/
     }
 
     //Updates x start pos based on board width

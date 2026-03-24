@@ -15,14 +15,13 @@ type Props = {
 };
 
 export default function GameBoard({ selectedChapters, selectedDifficulty, goBack }: Props) {
+    const [vocab, setVocab] = useState<VocabWordType[]>([])
     const [displayedWordID, setDisplayedWordID] = useState<number>(0)
     const [userGuess, setUserGuess] = useState<string>("")
     const [falseText, setFalseText] = useState<string>("")
     const [missTotal, setMissTotal] = useState<number>(0)
     const [correctTotal, setCorrectTotal] = useState<number>(0)
     const [xPos, setXPos] = useState<number>(0)
-
-    const vocab: VocabWordType[] = genki1Vocab.filter(word => selectedChapters.includes(word.chapter));
 
     //Find board width to render radnom x value
     const boardRef = useRef<HTMLDivElement>(null);
@@ -60,6 +59,11 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     const handleGuess = (e: React.SubmitEvent) => {
         e.preventDefault();
 
+        if (!vocab.length) return;
+
+        const currentWord = vocab[displayedWordID];
+        if (!currentWord) return;
+
         setFalseText("");
 
         //change guess word to lowercase
@@ -86,10 +90,21 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         }
     }
 
+    function shuffleArray<T>(arr: T[]) {
+        return [...arr].sort(() => Math.random() - 0.5);
+    }
+
+    //Sets vocab based on selected chapters and shuffles once
+    useEffect(() => {
+        const chapters = genki1Vocab.filter(word => selectedChapters.includes(word.chapter));
+
+        setVocab(shuffleArray(chapters));
+    }, [selectedChapters]);
+
     //Updates x start pos based on board width
     useEffect(() => {
         if (boardWidth > 0) {
-            setXPos(Math.random() * (boardWidth - 100))
+            setXPos(Math.random() * (boardWidth - 150))
         }
     }, [displayedWordID, boardWidth])
 
@@ -105,23 +120,30 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         inputRef.current?.focus()
     }, [displayedWordID])
 
+    //Resets counter when vocab resets
+    useEffect(() => {
+        setDisplayedWordID(0);
+    }, [vocab])
+
 
     return (
         <>
             <div
                 ref={boardRef}
                 className="relative flex flex-col items-center bg-yellow-100 h-[500px] w-5xl overflow-hidden">
-                <motion.div
-                    className="absolute"
-                    key={displayedWordID}
-                    style={{ left: xPos }}
-                    initial={{ y: 0 }}
-                    animate={{ y: 430 }}
-                    transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}
-                    onAnimationComplete={handleMiss}
-                >
-                    <VocabWord word={vocab[displayedWordID]} />
-                </motion.div>
+                {vocab.length > 0 && vocab[displayedWordID] && (
+                    <motion.div
+                        className="absolute whitespace-nowrap"
+                        key={displayedWordID}
+                        style={{ left: xPos }}
+                        initial={{ y: 0 }}
+                        animate={{ y: 430 }}
+                        transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}
+                        onAnimationComplete={handleMiss}
+                    >
+                        <VocabWord word={vocab[displayedWordID]} />
+                    </motion.div>
+                )}
             </div>
 
 

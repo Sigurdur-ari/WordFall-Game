@@ -3,17 +3,20 @@ import GameBoard from "@/components/GameBoard";
 import Header from "@/components/Header";
 import StartScreen from "@/components/StartScreen"
 import ChapterSelect from "@/components/ChapterSelect";
+import GameSummary from "@/components/GameSummary"
 
 import { useState } from "react";
 import DifficultySelect from "@/components/DifficultySelect";
 import { Difficulty } from "@/lib/types";
 
-type DisplayScreen = "menu" | "chapterSelect" | "difficultySelect" | "game"
+type DisplayScreen = "menu" | "chapterSelect" | "difficultySelect" | "game" | "summary"
 
 export default function Home() {
   const [screen, setScreen] = useState<DisplayScreen>("menu");
   const [selectedChapters, setSelectedChapters] = useState<number[]>([]);
   const [difficulty, setDifficulty] = useState<Difficulty>("medium");
+  const [missTotal, setMissTotal] = useState<number>(0)
+  const [correctTotal, setCorrectTotal] = useState<number>(0)
 
   if (screen == "menu") {
     return (
@@ -52,6 +55,8 @@ export default function Home() {
     )
   }
 
+  //STILL HAVE TO FIGURE OUT WHY ONE WORD IS MISSING IN TOTAL
+
   if (screen == "game") {
     return (
       <div className="flex flex-col content-center items-center h-screen">
@@ -59,9 +64,25 @@ export default function Home() {
         <GameBoard
           selectedChapters={selectedChapters}
           selectedDifficulty={difficulty}
+          onGameEnd={(correctTotal, missTotal) => {
+            setCorrectTotal(correctTotal);
+            setMissTotal(missTotal);
+            setScreen("summary");
+          }}
           goBack={() => setScreen("difficultySelect")}
         />
       </div>
     );
+  }
+  if (screen == "summary") {
+    return (
+      <div>
+        <GameSummary
+          totalCorrect={correctTotal}
+          totalMiss={missTotal}
+          goBack={() => setScreen("menu")}
+        />
+      </div>
+    )
   }
 }

@@ -24,6 +24,7 @@ export default function DifficultySelect({ difficulty, setDifficulty, startGame,
             <form>
                 <div className="flex flex-col gap-2">
                     <input
+                        id="easyDifficulty"
                         type="radio"
                         name="difficulty"
                         checked={difficulty === "easy"}
@@ -32,6 +33,7 @@ export default function DifficultySelect({ difficulty, setDifficulty, startGame,
                     <label htmlFor="easyDifficulty">Easy</label>
 
                     <input
+                        id="mediumDifficulty"
                         type="radio"
                         name="difficulty"
                         checked={difficulty === "medium"}
@@ -40,6 +42,7 @@ export default function DifficultySelect({ difficulty, setDifficulty, startGame,
                     <label htmlFor="mediumDifficulty">Medium</label>
 
                     <input
+                        id="hardDifficulty"
                         type="radio"
                         name="difficulty"
                         checked={difficulty === "hard"}
@@ -48,6 +51,7 @@ export default function DifficultySelect({ difficulty, setDifficulty, startGame,
                     <label htmlFor="hardDifficulty">Hard</label>
 
                     <input
+                        id="extremeDifficulty"
                         type="radio"
                         name="difficulty"
                         checked={difficulty === "extreme"}

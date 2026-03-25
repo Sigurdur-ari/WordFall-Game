@@ -11,10 +11,11 @@ import type { Difficulty, VocabWordType } from "@/lib/types";
 type Props = {
     selectedChapters: number[];
     selectedDifficulty: Difficulty
+    onGameEnd: (correct: number, misses: number) => void;
     goBack: () => void;
 };
 
-export default function GameBoard({ selectedChapters, selectedDifficulty, goBack }: Props) {
+export default function GameBoard({ selectedChapters, selectedDifficulty, goBack, onGameEnd }: Props) {
     const [vocab, setVocab] = useState<VocabWordType[]>([])
     const [displayedWordID, setDisplayedWordID] = useState<number>(0)
     const [userGuess, setUserGuess] = useState<string>("")
@@ -46,9 +47,10 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
 
     //Handles misses
     const handleMiss = () => {
-        setMissTotal((prev) => prev + 1);
+        const newMissTotal = missTotal + 1;
+        setMissTotal(newMissTotal);
         if (displayedWordID >= vocab.length - 1) {
-            setDisplayedWordID(0);
+            onGameEnd(correctTotal, newMissTotal);
         }
         else {
             nextWord();
@@ -76,9 +78,11 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
 
         if (isCorrect) {
             setUserGuess("");
-            setCorrectTotal((prev) => prev + 1)
+            const newCorrectTotal = correctTotal + 1;
+            setCorrectTotal(newCorrectTotal);
+            //Check if game is over
             if (displayedWordID >= vocab.length - 1) {
-                setDisplayedWordID(0);
+                onGameEnd(newCorrectTotal, missTotal);
             }
             else {
                 nextWord();

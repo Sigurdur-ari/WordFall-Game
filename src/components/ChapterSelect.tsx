@@ -18,32 +18,46 @@ export default function ChapterSelect({ selected, setSelected, nextStep, goBack 
     }
 
     return (
-        <div className="flex flex-col items-center gap-6 p-8">
-            <h2 className="text-2xl font-bold">Select Chapters!</h2>
-            <div className="flex flex-col gap-2">
-                {[1, 2, 3].map((chapter) => (
-                    <label key={chapter}>
-                        <input
-                            type="checkbox"
-                            checked={selected.includes(chapter)}
-                            onChange={() => toggleChapter(chapter)}
-                        />
-                        {" "}Chapter {chapter}
-                    </label>
-                ))}
+        <div className="flex flex-col items-center gap-6 p-8 w-full">
+            <h2 className="text-3xl font-semibold text-gray-800 text-center">
+                Select Chapters!
+            </h2>
+            <div className="flex flex-col gap-3 w-full max-w-xs">
+                {[1, 2, 3].map((chapter) => {
+                    const isSelected = selected.includes(chapter);
+                    return (
+                        <button
+                            key={chapter}
+                            onClick={() => toggleChapter(chapter)}
+                            className={`
+                                w-full px-4 py-3 rounded-lg 
+                                text-gray-800 font-medium 
+                                transition-all
+                                ${isSelected
+                                    ? "bg-rose-200 shadow-inner"
+                                    : "bg-rose-50 hover:bg-rose-100"}
+                            `}
+                        >
+                            Chapter {chapter}
+                        </button>
+                    )
+                })}
             </div>
-            <button
-                onClick={nextStep}
-                className="bg-green-500 text-white px-4 py-2 rounded"
-            >
-                Select difficulty!
-            </button>
-            <button
-                onClick={goBack}
-                className="bg-gray-400 px-4 py-2 rounded"
-            >
-                Go Back!
-            </button>
+
+            <div className="flex gap-4 mt-6">
+                <button
+                    onClick={nextStep}
+                    className="bg-rose-200 px-6 py-2 rounded-lg shadow hover:bg-rose-300 transition-colors"
+                >
+                    Select Difficulty
+                </button>
+                <button
+                    onClick={goBack}
+                    className="bg-gray-200 px-6 py-2 rounded-lg shadow hover:bg-gray-300 transition-colors"
+                >
+                    Go Back
+                </button>
+            </div>
         </div>
     )
 }

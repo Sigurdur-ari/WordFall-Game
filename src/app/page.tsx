@@ -20,7 +20,7 @@ export default function Home() {
 
   if (screen == "menu") {
     return (
-      <div className="flex flex-col content-center items-center h-screen">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
         <StartScreen start={() => setScreen("chapterSelect")} />
       </div>
@@ -29,7 +29,7 @@ export default function Home() {
 
   if (screen == "chapterSelect") {
     return (
-      <div className="flex flex-col content-center items-center h-screen">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
         <ChapterSelect
           selected={selectedChapters}
@@ -43,7 +43,7 @@ export default function Home() {
 
   if (screen == "difficultySelect") {
     return (
-      <div className="flex flex-col content-center items-center h-screen">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
         <DifficultySelect
           difficulty={difficulty}
@@ -55,11 +55,9 @@ export default function Home() {
     )
   }
 
-  //STILL HAVE TO FIGURE OUT WHY ONE WORD IS MISSING IN TOTAL
-
   if (screen == "game") {
     return (
-      <div className="flex flex-col content-center items-center h-screen">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
         <GameBoard
           selectedChapters={selectedChapters}
@@ -76,7 +74,7 @@ export default function Home() {
   }
   if (screen == "summary") {
     return (
-      <div>
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <GameSummary
           totalCorrect={correctTotal}
           totalMiss={missTotal}

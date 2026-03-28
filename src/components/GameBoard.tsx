@@ -23,11 +23,13 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     const [missTotal, setMissTotal] = useState<number>(0)
     const [correctTotal, setCorrectTotal] = useState<number>(0)
     const [xPos, setXPos] = useState<number>(0)
+    const [yEnd, setYEnd] = useState<number>(0)
 
-    //Find board width to render radnom x value
+    //Refs to calculate board and word width and height to place word on board
     const boardRef = useRef<HTMLDivElement>(null);
-    const [boardWidth, setBoardWidth] = useState<number>(0);
+    const wordRef = useRef<HTMLDivElement>(null);
 
+    //Ref on the input to place auto focus
     const inputRef = useRef<HTMLInputElement>(null);
 
     //function to reset game
@@ -42,6 +44,20 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     //Sets next word
     const nextWord = () => {
         setFalseText("")
+
+        // Find new xPos and a safe yEnd before displaying next word
+        if (boardRef.current && wordRef.current) {
+            const boardWidth = boardRef.current.offsetWidth;
+            const boardHeight = boardRef.current.offsetHeight;
+            const wordWidth = wordRef.current.offsetWidth;
+            const wordHeight = wordRef.current.offsetHeight;
+
+            const safeX = Math.random() * (boardWidth - wordWidth);
+            setXPos(safeX);
+
+            const safeY = boardHeight - wordHeight;
+            setYEnd(safeY);
+        }
         setDisplayedWordID((prev) => prev + 1);
     }
 
@@ -61,8 +77,10 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     const handleGuess = (e: React.SubmitEvent) => {
         e.preventDefault();
 
+        //Check if vocab exists
         if (!vocab.length) return;
 
+        //Check if current word exists in vocab
         const currentWord = vocab[displayedWordID];
         if (!currentWord) return;
 
@@ -105,20 +123,6 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         setVocab(shuffleArray(chapters));
     }, [selectedChapters]);
 
-    //Updates x start pos based on board width
-    useEffect(() => {
-        if (boardWidth > 0) {
-            setXPos(Math.random() * (boardWidth - 150))
-        }
-    }, [displayedWordID, boardWidth])
-
-    //Set the board width to update x start pos
-    useEffect(() => {
-        if (boardRef.current) {
-            setBoardWidth(boardRef.current.offsetWidth)
-        }
-    }, [])
-
     //Place auto focus on input bar so user can type without selecting input
     useEffect(() => {
         inputRef.current?.focus()
@@ -129,19 +133,34 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         setDisplayedWordID(0);
     }, [vocab])
 
+    //Set board and word refs for first displayed word, changes when vocab changes
+    useEffect(() => {
+        if (boardRef.current && wordRef.current && vocab.length > 0) {
+            const boardWidth = boardRef.current.offsetWidth;
+            const boardHeight = boardRef.current.offsetHeight;
+            const wordWidth = wordRef.current.offsetWidth;
+            const wordHeight = wordRef.current.offsetHeight;
+
+            setXPos(Math.random() * (boardWidth - wordWidth));
+            setYEnd(boardHeight - wordHeight);
+        }
+    }, [vocab]);
+
 
     return (
-        <>
+        <div className="flex flex-col items-center w-full h-full">
             <div
                 ref={boardRef}
-                className="relative flex flex-col items-center bg-yellow-100 h-[500px] w-5xl overflow-hidden">
+                className="relative w-full max-w-2xl h-[500px] mx-auto overflow-hidden rounded-xl shadow-lg bg-gradient-to-b from-pink-50 via-white to-yellow-50"
+            >
                 {vocab.length > 0 && vocab[displayedWordID] && (
                     <motion.div
-                        className="absolute whitespace-nowrap"
+                        ref={wordRef}
+                        className="absolute"
                         key={displayedWordID}
                         style={{ left: xPos }}
                         initial={{ y: 0 }}
-                        animate={{ y: 430 }}
+                        animate={{ y: yEnd }}
                         transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}
                         onAnimationComplete={handleMiss}
                     >
@@ -151,31 +170,31 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
             </div>
 
 
-            <div className="flex flex-col items-center gap-2">
-                {falseText && <p className="text-red-500">{falseText}</p>}
-                <div className="flex flex row gap-4">
-                    {correctTotal > 0 && <p>Correct: {correctTotal}</p>}
+            <div className="flex flex-col items-center gap-3 mt-6">
+                {falseText && <p className="text-red-500 font-medium">{falseText}</p>}
+                <div className="flex items-center gap-4 p-2 bg-white/50 backdrop-blur-sm rounded-lg shadow-md">
+                    <p className="text-green-600 font-semibold">Correct: {correctTotal}</p>
                     <form onSubmit={handleGuess}>
-                        <input className="bg-white border w-125 mb-4"
+                        <input
                             ref={inputRef}
                             type="text"
-                            name="Guess"
                             value={userGuess}
                             onChange={(e) => setUserGuess(e.target.value)}
+                            className="bg-white/80 border border-gray-300 rounded-lg px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-pink-200"
                         />
                     </form>
-                    {missTotal > 0 && <p>Misses: {missTotal}</p>}
+                    <p className="text-red-600 font-semibold">Misses: {missTotal}</p>
                 </div>
                 <button
                     onClick={() => {
                         reset();
                         goBack();
                     }}
-                    className="bg-gray-400 px-4 py-2 rounded"
+                    className="bg-gray-400 px-4 py-2 rounded hover:bg-gray-500 transition"
                 >
                     Back
                 </button>
             </div>
-        </>
+        </div>
     )
 }

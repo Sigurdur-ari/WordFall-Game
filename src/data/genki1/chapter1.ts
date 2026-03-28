@@ -93,7 +93,7 @@ export const chapter1: VocabWordType[] = [
         id: "12",
         chapter: 1,
         japanese: "〜さん",
-        kanji: "x",
+        kanji: null,
         meaning: ["Mr.", "Ms.", "Mr", "Ms"],
         wordType: "postfix"
     },
@@ -181,7 +181,7 @@ export const chapter1: VocabWordType[] = [
         id: "23",
         chapter: 1,
         japanese: "アメリカ",
-        kanji: "x",
+        kanji: null,
         meaning: ["USA"],
         wordType: "noun"
     },
@@ -253,7 +253,7 @@ export const chapter1: VocabWordType[] = [
         id: "32",
         chapter: 1,
         japanese: "あのう",
-        kanji: "x",
+        kanji: null,
         meaning: ["um", "um..."],
         wordType: "other"
     },
@@ -261,7 +261,7 @@ export const chapter1: VocabWordType[] = [
         id: "33",
         chapter: 1,
         japanese: "はい",
-        kanji: "x",
+        kanji: null,
         meaning: ["yes"],
         wordType: "other"
     },
@@ -269,7 +269,7 @@ export const chapter1: VocabWordType[] = [
         id: "34",
         chapter: 1,
         japanese: "そうです",
-        kanji: "x",
+        kanji: null,
         meaning: ["Thats right", "That's right"],
         wordType: "other"
     },
@@ -277,7 +277,7 @@ export const chapter1: VocabWordType[] = [
         id: "35",
         chapter: 1,
         japanese: "そうですか",
-        kanji: "x",
+        kanji: null,
         meaning: ["Is that so", "i see", "is that so?"],
         wordType: "other"
     },

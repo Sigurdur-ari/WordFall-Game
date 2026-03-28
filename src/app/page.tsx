@@ -20,9 +20,35 @@ export default function Home() {
 
   if (screen == "menu") {
     return (
-      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
-        <Header />
-        <StartScreen start={() => setScreen("chapterSelect")} />
+      <div className="flex items-center justify-center gap-6">
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdL_rF2_WOF3ln3_bcsfCOYPOAiH8XfhVLvFOdK92__TxVcTg/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-100 hover:bg-yellow-200 px-4 py-2 rounded-lg shadow text-center transition-colors"
+          >
+            📝 Feedback
+          </a>
+        </div>
+
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
+          <Header />
+          <StartScreen start={() => setScreen("chapterSelect")} />
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdhw3z9VKf7u9MvH_w5SUL_UOs3ncV4TODmu0WRxCFpMiH1sw/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-100 hover:bg-yellow-200 px-4 py-2 rounded-lg shadow text-center transition-colors"
+          >
+            📚 Add Vocab
+          </a>
+        </div>
+
       </div>
     )
   }

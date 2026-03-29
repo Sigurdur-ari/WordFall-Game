@@ -182,7 +182,7 @@ export const chapter1: VocabWordType[] = [
         chapter: 1,
         japanese: "アメリカ",
         kanji: null,
-        meaning: ["USA"],
+        meaning: ["USA", "america", "united states", "the united states"],
         wordType: "noun"
     },
     {
@@ -190,7 +190,7 @@ export const chapter1: VocabWordType[] = [
         chapter: 1,
         japanese: "〜ご",
         kanji: "〜語",
-        meaning: ["...language"],
+        meaning: ["...language", "language"],
         wordType: "noun"
     },
     {

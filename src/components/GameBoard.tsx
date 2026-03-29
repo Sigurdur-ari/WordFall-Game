@@ -24,6 +24,10 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     const [correctTotal, setCorrectTotal] = useState<number>(0)
     const [xPos, setXPos] = useState<number>(0)
     const [yEnd, setYEnd] = useState<number>(0)
+    const [boardWidth, setBoardWidth] = useState<number>(0)
+    const [boardHeight, setBoardHeight] = useState<number>(0)
+    const [displayWord, setDisplayWord] = useState<boolean>(false)
+    const [isWordActive, setIsWordActive] = useState<boolean>(true)
 
     //Refs to calculate board and word width and height to place word on board
     const boardRef = useRef<HTMLDivElement>(null);
@@ -43,26 +47,20 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
 
     //Sets next word
     const nextWord = () => {
-        setFalseText("")
-
-        // Find new xPos and a safe yEnd before displaying next word
-        if (boardRef.current && wordRef.current) {
-            const boardWidth = boardRef.current.offsetWidth;
-            const boardHeight = boardRef.current.offsetHeight;
-            const wordWidth = wordRef.current.offsetWidth;
-            const wordHeight = wordRef.current.offsetHeight;
-
-            const safeX = Math.random() * (boardWidth - wordWidth);
-            setXPos(safeX);
-
-            const safeY = boardHeight - wordHeight;
-            setYEnd(safeY);
-        }
+        setFalseText("");
+        setDisplayWord(false);
+        setIsWordActive(true);
         setDisplayedWordID((prev) => prev + 1);
     }
 
     //Handles misses
     const handleMiss = () => {
+        //Check if word is already answered
+        if (!isWordActive) return;
+
+        //lock the state of the word
+        setIsWordActive(false);
+
         const newMissTotal = missTotal + 1;
         setMissTotal(newMissTotal);
         if (displayedWordID >= vocab.length - 1) {
@@ -95,6 +93,11 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         );
 
         if (isCorrect) {
+            //Check if word is already answered
+            if (!isWordActive) return;
+
+            //lock the state of the word
+            setIsWordActive(false);
             setUserGuess("");
             const newCorrectTotal = correctTotal + 1;
             setCorrectTotal(newCorrectTotal);
@@ -133,18 +136,54 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         setDisplayedWordID(0);
     }, [vocab])
 
+
     //Set board and word refs for first displayed word, changes when vocab changes
     useEffect(() => {
         if (boardRef.current && wordRef.current && vocab.length > 0) {
-            const boardWidth = boardRef.current.offsetWidth;
-            const boardHeight = boardRef.current.offsetHeight;
+            const tempBoardHeight = boardRef.current.offsetHeight
+            const tempBoardWidth = boardRef.current.offsetWidth
+            setBoardWidth(tempBoardWidth);
+            setBoardHeight(tempBoardHeight);
             const wordWidth = wordRef.current.offsetWidth;
             const wordHeight = wordRef.current.offsetHeight;
 
-            setXPos(Math.random() * (boardWidth - wordWidth));
-            setYEnd(boardHeight - wordHeight);
+            const padding = 16;
+
+            setXPos(Math.random() * (tempBoardWidth - wordWidth - padding * 2) + padding);
+            setYEnd(tempBoardHeight - wordHeight);
+
+            setDisplayWord(true);
         }
     }, [vocab]);
+
+
+    //Sets word refs for every next word, waits for word to render before calculating
+    useEffect(() => {
+        if (!boardRef.current || !wordRef.current) return;
+
+        // wait one frame so word can render
+        requestAnimationFrame(() => {
+            const word = wordRef.current!;
+
+            const wordWidth = word.offsetWidth;
+            const wordHeight = word.offsetHeight;
+
+            const padding = 16;
+
+            const safeX =
+                Math.max(
+                    padding,
+                    Math.random() * (boardWidth - wordWidth - padding * 2) + padding
+                );
+
+            const safeY = boardHeight - wordHeight;
+
+            setXPos(safeX);
+            setYEnd(safeY);
+
+            setDisplayWord(true);
+        });
+    }, [displayedWordID]);
 
 
     return (
@@ -156,9 +195,12 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
                 {vocab.length > 0 && vocab[displayedWordID] && (
                     <motion.div
                         ref={wordRef}
-                        className="absolute"
+                        className="absolute whitespace-nowrap"
                         key={displayedWordID}
-                        style={{ left: xPos }}
+                        style={{
+                            left: xPos,
+                            visibility: displayWord ? "visible" : "hidden"
+                        }}
                         initial={{ y: 0 }}
                         animate={{ y: yEnd }}
                         transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}

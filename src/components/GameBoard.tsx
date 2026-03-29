@@ -28,6 +28,7 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
     const [boardHeight, setBoardHeight] = useState<number>(0)
     const [displayWord, setDisplayWord] = useState<boolean>(false)
     const [isWordActive, setIsWordActive] = useState<boolean>(true)
+    const [animationHasStarted, setAnimationHasStarted] = useState<boolean>(false)
 
     //Refs to calculate board and word width and height to place word on board
     const boardRef = useRef<HTMLDivElement>(null);
@@ -50,11 +51,14 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         setFalseText("");
         setDisplayWord(false);
         setIsWordActive(true);
+        setAnimationHasStarted(false);
         setDisplayedWordID((prev) => prev + 1);
     }
 
     //Handles misses
     const handleMiss = () => {
+        //Ignore miss if word is not visible yet or yEnd is 0 or if animation has started. Fixes random first word miss
+        if (!displayWord || yEnd <= 0 || !animationHasStarted) return;
         //Check if word is already answered
         if (!isWordActive) return;
 
@@ -202,9 +206,13 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
                             visibility: displayWord ? "visible" : "hidden"
                         }}
                         initial={{ y: 0 }}
-                        animate={{ y: yEnd }}
+                        animate={displayWord && yEnd > 0 ? { y: yEnd } : { y: 0 }}
                         transition={{ duration: difficultySettings[selectedDifficulty], ease: "linear" }}
-                        onAnimationComplete={handleMiss}
+                        onAnimationStart={() => setAnimationHasStarted(true)}
+                        onAnimationComplete={() => {
+                            if (!animationHasStarted) return;
+                            handleMiss();
+                        }}
                     >
                         <VocabWord word={vocab[displayedWordID]} />
                     </motion.div>

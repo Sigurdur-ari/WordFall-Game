@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# About the game
 
-## Getting Started
+This is a vocabulary practice game that contains vocabulary from the Genki 1 textbook. The game is a falling words game where the player should try to write the english meaning of a Japanese vocabulary word before the word hits the bottom. 
 
-First, run the development server:
+## Where to play
+The game is playable at this URL: https://word-fall-game.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About the developer
+My name is Sigurður Ari and I am graduating with a BSc in Computer Science with Japanese language and culture as a minor degree from the University of Iceland in June 2026. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I really enjoy making web applications and learning Japanese, so I decided to combine my interests into this simple game. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Future plans
+I intend on expanding this game a lot to aid future students in Japanese at the University of Iceland. I want to add more gamemodes, more vocabulary from other textbooks used, high score tracking and much more. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+On the front page of the game, users can navigate to a google forms sheet to either leave a review and give ideas on how I can improve this game as well as finding a form to suggest new vocabulary from Genki 1 which I could add to the game. 

@@ -36,6 +36,14 @@ export default function Home() {
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
           <Header />
           <StartScreen start={() => setScreen("chapterSelect")} />
+          <div className="absolute top-4 right-4">
+            <button
+              onClick={() => alert("When you are ready, press start game. \n\nThen select which chapters you want to practice and then the difficulty. \n\nThen play and see your Japanese vocabulary increase :)")}
+              className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white"
+            >
+              ?
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col gap-3">
@@ -63,6 +71,14 @@ export default function Home() {
           nextStep={() => setScreen("difficultySelect")}
           goBack={() => setScreen("menu")}
         />
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={() => alert("Select which chapter/s you want to practice. \n\n You can choose as many chapters as you like and their vocabulary will be shuffled in the game. ")}
+            className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white"
+          >
+            ?
+          </button>
+        </div>
       </div>
     )
   }
@@ -77,6 +93,14 @@ export default function Home() {
           startGame={() => setScreen("game")}
           goBack={() => setScreen("chapterSelect")}
         />
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={() => alert("Select the difficulty of the game. \n\n Easy = 30s \n\n Medium = 20s \n\n Hard = 10s \n\n Extreme = 5s")}
+            className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white"
+          >
+            ?
+          </button>
+        </div>
       </div>
     )
   }
@@ -95,6 +119,14 @@ export default function Home() {
           }}
           goBack={() => setScreen("difficultySelect")}
         />
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={() => alert("Type the English meaning of the word before the it reaches the bottom!")}
+            className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white"
+          >
+            ?
+          </button>
+        </div>
       </div>
     );
   }

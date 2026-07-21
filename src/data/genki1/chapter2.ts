@@ -106,7 +106,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "13",
+        id: "14",
         chapter: 2,
         japanese: "おいしい",
         kanji: "美味しい",
@@ -114,7 +114,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "i-adjective"
     },
     {
-        id: "13",
+        id: "15",
         chapter: 2,
         japanese: "さかな",
         kanji: "魚",
@@ -122,7 +122,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "14",
+        id: "16",
         chapter: 2,
         japanese: "とんかつ",
         kanji: "豚カツ",
@@ -130,7 +130,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "15",
+        id: "17",
         chapter: 2,
         japanese: "にく",
         kanji: "肉",
@@ -138,7 +138,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "16",
+        id: "18",
         chapter: 2,
         japanese: "メニュー",
         kanji: null,
@@ -146,7 +146,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "17",
+        id: "19",
         chapter: 2,
         japanese: "やさい",
         kanji: "野菜",
@@ -154,7 +154,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "18",
+        id: "20",
         chapter: 2,
         japanese: "かさ",
         kanji: "傘",
@@ -162,7 +162,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "19",
+        id: "21",
         chapter: 2,
         japanese: "かばん",
         kanji: "鞄",
@@ -170,7 +170,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "20",
+        id: "22",
         chapter: 2,
         japanese: "くつ",
         kanji: "靴",
@@ -178,7 +178,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "21",
+        id: "23",
         chapter: 2,
         japanese: "さいふ",
         kanji: "財布",
@@ -186,7 +186,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "22",
+        id: "24",
         chapter: 2,
         japanese: "ジーンズ",
         kanji: null,
@@ -194,7 +194,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "23",
+        id: "25",
         chapter: 2,
         japanese: "じてんしゃ",
         kanji: "自転車",
@@ -202,7 +202,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "24",
+        id: "26",
         chapter: 2,
         japanese: "しんぶん",
         kanji: "新聞",
@@ -210,7 +210,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "25",
+        id: "27",
         chapter: 2,
         japanese: "スマホ",
         kanji: null,
@@ -218,7 +218,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "26",
+        id: "28",
         chapter: 2,
         japanese: "T シャツ",
         kanji: null,
@@ -226,7 +226,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "27",
+        id: "29",
         chapter: 2,
         japanese: "とけい",
         kanji: "時計",
@@ -234,7 +234,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "28",
+        id: "30",
         chapter: 2,
         japanese: "ノート",
         kanji: null,
@@ -242,7 +242,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "29",
+        id: "31",
         chapter: 2,
         japanese: "ペン",
         kanji: null,
@@ -250,7 +250,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "30",
+        id: "32",
         chapter: 2,
         japanese: "ぼうし",
         kanji: "帽子",
@@ -258,7 +258,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "31",
+        id: "33",
         chapter: 2,
         japanese: "ほん",
         kanji: "本",
@@ -266,7 +266,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "32",
+        id: "34",
         chapter: 2,
         japanese: "ぎんこう",
         kanji: "銀行",
@@ -274,7 +274,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "33",
+        id: "35",
         chapter: 2,
         japanese: "コンビニ",
         kanji: null,
@@ -282,7 +282,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "34",
+        id: "36",
         chapter: 2,
         japanese: "トイレ",
         kanji: null,
@@ -290,7 +290,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "35",
+        id: "37",
         chapter: 2,
         japanese: "としょかん",
         kanji: "図書館",
@@ -298,7 +298,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "36",
+        id: "38",
         chapter: 2,
         japanese: "ゆうびんきょく",
         kanji: "郵便局",
@@ -306,7 +306,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "37",
+        id: "39",
         chapter: 2,
         japanese: "イギリス",
         kanji: null,
@@ -314,7 +314,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "38",
+        id: "40",
         chapter: 2,
         japanese: "かんこく",
         kanji: "韓国",
@@ -322,7 +322,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "39",
+        id: "41",
         chapter: 2,
         japanese: "ちゅうごく",
         kanji: "中国",
@@ -330,7 +330,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "40",
+        id: "42",
         chapter: 2,
         japanese: "えいご",
         kanji: "英語",
@@ -338,7 +338,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "41",
+        id: "43",
         chapter: 2,
         japanese: "けいざい",
         kanji: "経済",
@@ -346,7 +346,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "42",
+        id: "44",
         chapter: 2,
         japanese: "コンピューター",
         kanji: null,
@@ -354,7 +354,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "43",
+        id: "45",
         chapter: 2,
         japanese: "ビジネス",
         kanji: null,
@@ -362,7 +362,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "44",
+        id: "46",
         chapter: 2,
         japanese: "れきし",
         kanji: "歴史",
@@ -370,7 +370,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "45",
+        id: "47",
         chapter: 2,
         japanese: "おかあさん",
         kanji: "お母さん",
@@ -378,7 +378,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "46",
+        id: "48",
         chapter: 2,
         japanese: "おとうさん",
         kanji: "お父さん",
@@ -386,7 +386,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "noun"
     },
     {
-        id: "47",
+        id: "49",
         chapter: 2,
         japanese: "いくら",
         kanji: null,
@@ -394,7 +394,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "48",
+        id: "50",
         chapter: 2,
         japanese: "〜えん",
         kanji: "〜円",
@@ -402,7 +402,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "postfix"
     },
     {
-        id: "49",
+        id: "51",
         chapter: 2,
         japanese: "たかい",
         kanji: "高い",
@@ -410,7 +410,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "i-adjective"
     },
     {
-        id: "50",
+        id: "52",
         chapter: 2,
         japanese: "いらっしゃいませ",
         kanji: null,
@@ -418,7 +418,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "51",
+        id: "53",
         chapter: 2,
         japanese: "（〜を）おねがいします",
         kanji: "（〜を）お願いします",
@@ -426,7 +426,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "52",
+        id: "54",
         chapter: 2,
         japanese: "（〜を）ください",
         kanji: null,
@@ -434,7 +434,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "53",
+        id: "55",
         chapter: 2,
         japanese: "じゃあ",
         kanji: null,
@@ -442,7 +442,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "54",
+        id: "56",
         chapter: 2,
         japanese: "どうぞ",
         kanji: null,
@@ -450,7 +450,7 @@ export const chapter2: VocabWordType[] = [
         wordType: "other"
     },
     {
-        id: "55",
+        id: "57",
         chapter: 2,
         japanese: "どうも",
         kanji: null,

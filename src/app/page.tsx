@@ -18,7 +18,7 @@ export default function Home() {
   const [missTotal, setMissTotal] = useState<number>(0)
   const [correctTotal, setCorrectTotal] = useState<number>(0)
 
-  if (screen == "menu") {
+  if (screen === "menu") {
     return (
       <div className="flex items-center justify-center gap-6">
 
@@ -56,12 +56,11 @@ export default function Home() {
             📚 Add Vocab
           </a>
         </div>
-
       </div>
     )
   }
 
-  if (screen == "chapterSelect") {
+  if (screen === "chapterSelect") {
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
@@ -83,7 +82,7 @@ export default function Home() {
     )
   }
 
-  if (screen == "difficultySelect") {
+  if (screen === "difficultySelect") {
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
@@ -105,7 +104,7 @@ export default function Home() {
     )
   }
 
-  if (screen == "game") {
+  if (screen === "game") {
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <Header />
@@ -130,7 +129,7 @@ export default function Home() {
       </div>
     );
   }
-  if (screen == "summary") {
+  if (screen === "summary") {
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-8 w-[500px]">
         <GameSummary

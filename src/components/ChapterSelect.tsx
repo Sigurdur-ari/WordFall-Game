@@ -47,7 +47,12 @@ export default function ChapterSelect({ selected, setSelected, nextStep, goBack 
             <div className="flex gap-4 mt-6">
                 <button
                     onClick={nextStep}
-                    className="bg-rose-200 px-6 py-2 rounded-lg shadow hover:bg-rose-300 transition-colors"
+                    disabled={selected.length === 0}
+                    className={`bg-rose-200 px-6 py-2 rounded-lg shadow transition-colors ${
+                        selected.length === 0
+                            ? "opacity-50 cursor-not-allowed"
+                            : "hover:bg-rose-300"
+                    }`}
                 >
                     Select Difficulty
                 </button>

@@ -119,14 +119,19 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         }
     }
 
-    function shuffleArray<T>(arr: T[]) {
-        return [...arr].sort(() => Math.random() - 0.5);
+    function shuffleArray<T>(arr: T[]): T[] {
+        const shuffled = [...arr];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
     }
 
     //Sets vocab based on selected chapters and shuffles once
     useEffect(() => {
         const chapters = genki1Vocab.filter(word => selectedChapters.includes(word.chapter));
-
+        //eslint-disable-next-line react-hooks/set-state-in-effect
         setVocab(shuffleArray(chapters));
     }, [selectedChapters]);
 
@@ -135,10 +140,11 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
         inputRef.current?.focus()
     }, [displayedWordID])
 
-    //Resets counter when vocab resets
+    //Resets counter when chapters change
     useEffect(() => {
+        //eslint-disable-next-line react-hooks/set-state-in-effect
         setDisplayedWordID(0);
-    }, [vocab])
+    }, [selectedChapters])
 
 
     //Set board and word refs for first displayed word, changes when vocab changes
@@ -187,7 +193,7 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
 
             setDisplayWord(true);
         });
-    }, [displayedWordID]);
+    }, [displayedWordID, boardHeight, boardWidth]);
 
 
     return (

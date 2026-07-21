@@ -6,8 +6,8 @@ type Props = {
 
 export default function StartScreen({ start }: Props) {
     return (
-        <div className="flex flex-col items-center gap-6 w-full">
-            <h2 className="text-3xl font-semibold text-gray-800 text-center">
+        <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 text-center">
                 Genki Falling Words Game
             </h2>
 

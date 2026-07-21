@@ -197,10 +197,10 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
 
 
     return (
-        <div className="flex flex-col items-center w-full h-full">
+        <div className="flex flex-col items-center w-full flex-1 min-h-0">
             <div
                 ref={boardRef}
-                className="relative w-full max-w-2xl h-[500px] mx-auto overflow-hidden rounded-xl shadow-lg bg-gradient-to-b from-pink-50 via-white to-yellow-50"
+                className="relative w-full flex-1 min-h-0 overflow-hidden rounded-xl shadow-lg bg-gradient-to-b from-pink-50 via-white to-yellow-50 touch-game"
             >
                 {vocab.length > 0 && vocab[displayedWordID] && (
                     <motion.div
@@ -226,27 +226,29 @@ export default function GameBoard({ selectedChapters, selectedDifficulty, goBack
             </div>
 
 
-            <div className="flex flex-col items-center gap-3 mt-6">
+            <div className="flex flex-col items-center gap-2 mt-2 shrink-0">
                 {falseText && <p className="text-red-500 font-medium">{falseText}</p>}
-                <div className="flex items-center gap-4 p-2 bg-white/50 backdrop-blur-sm rounded-lg shadow-md">
-                    <p className="text-green-600 font-semibold">Correct: {correctTotal}</p>
-                    <form onSubmit={handleGuess}>
+                <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 p-2 bg-white/50 backdrop-blur-sm rounded-lg shadow-md w-full">
+                    <div className="flex items-center justify-between w-full md:w-auto md:gap-4">
+                        <p className="text-green-600 font-semibold text-sm md:text-base">Correct: {correctTotal}</p>
+                        <p className="text-red-600 font-semibold text-sm md:text-base">Misses: {missTotal}</p>
+                    </div>
+                    <form onSubmit={handleGuess} className="w-full md:w-auto">
                         <input
                             ref={inputRef}
                             type="text"
                             value={userGuess}
                             onChange={(e) => setUserGuess(e.target.value)}
-                            className="bg-white/80 border border-gray-300 rounded-lg px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-pink-200"
+                            className="w-full md:w-auto bg-white/80 border border-gray-300 rounded-lg px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-pink-200"
                         />
                     </form>
-                    <p className="text-red-600 font-semibold">Misses: {missTotal}</p>
                 </div>
                 <button
                     onClick={() => {
                         reset();
                         goBack();
                     }}
-                    className="bg-gray-400 px-4 py-2 rounded hover:bg-gray-500 transition"
+                    className="bg-gray-400 px-4 py-3 rounded hover:bg-gray-500 transition"
                 >
                     Back
                 </button>

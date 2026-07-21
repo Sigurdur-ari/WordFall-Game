@@ -13,22 +13,22 @@ export default function GameSummary({ totalCorrect, totalMiss, goBack }: Props) 
 
     const percentage = totalWords > 0 ? Math.ceil((totalCorrect / totalWords) * 100) : 0;
     return (
-        <div className="flex flex-col items-center justify-center w-full h-full p-8">
+        <div className="flex flex-col items-center justify-center w-full p-4 sm:p-8">
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-6 w-full max-w-md p-8 rounded-xl shadow-lg bg-gradient-to-b from-pink-50 via-white to-yellow-50"
+                className="flex flex-col items-center gap-6 w-full max-w-md p-4 sm:p-8 rounded-xl shadow-lg bg-gradient-to-b from-pink-50 via-white to-yellow-50"
             >
-                <h2 className="text-3xl font-semibold text-gray-800 text-center">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 text-center">
                     Game Summary
                 </h2>
 
-                <div className="flex flex-col items-center justify-center w-32 h-32 rounded-full bg-rose-100 shadow-inner">
-                    <span className="text-3xl font-bold text-gray-800">
+                <div className="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-rose-100 shadow-inner">
+                    <span className="text-2xl sm:text-3xl font-bold text-gray-800">
                         {percentage}%
                     </span>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-xs sm:text-sm text-gray-600">
                         Accuracy
                     </span>
                 </div>

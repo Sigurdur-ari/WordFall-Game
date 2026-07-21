@@ -18,8 +18,8 @@ export default function ChapterSelect({ selected, setSelected, nextStep, goBack 
     }
 
     return (
-        <div className="flex flex-col items-center gap-6 p-8 w-full">
-            <h2 className="text-3xl font-semibold text-gray-800 text-center">
+        <div className="flex flex-col items-center gap-6 p-4 sm:p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 text-center">
                 Select Chapters!
             </h2>
             <div className="flex flex-col gap-3 w-full max-w-xs">
